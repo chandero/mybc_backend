@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                                   controllers.IndexController.index()
+
+# Routes API Rest
+
+GET		/api/signin/:number		 		                    controllers.SigninController.validateUser(number: String)
+GET     /api/verify/:number/:password                       controllers.SigninController.validateSignIn(number: String, password: String)
+
+GET     /api/cdr/get/:number/:init_date/:end_date           controllers.CdrController.getCdrData(number: String, init_date: String, end_date: String)
+GET     /api/record/get/:uniqueid                           controllers.CdrController.getRecord(uniqueid: String)
+
+GET     /api/voicemail/getlist/:extension                   controllers.VoicemailController.getVoicemailList(extension: String)
+GET     /api/voicemail/get/:extension/:file                 controllers.VoicemailController.getVoicemail(extension: String, file: String)
+GET     /api/voicemail/del/:extension/:file                 controllers.VoicemailController.delVoicemail(extension: String, file: String)
+
+GET     /api/meet/getlist/:extension                        controllers.MeetController.getMeetList(extension: String)
+GET     /api/meet/get/:extension/:file                      controllers.MeetController.getMeet(extension: String, file: String)
+GET     /api/meet/del/:extension/:file                      controllers.MeetController.delMeet(extension: String, file: String)
+
+GET     /api/contact/getList/:extension                     controllers.ContactController.getList(extension: String)
+GET     /api/contact/get/:extension/:id                     controllers.ContactController.getContact(extension: String, id: String)
+
+GET     /api/followme/get/:extension                        controllers.FollowmeController.get(extension: String)
+POST    /api/followme/set                                   controllers.FollowmeController.set()
