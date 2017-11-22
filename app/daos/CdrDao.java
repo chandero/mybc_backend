@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import commons.ConnectionFactory;
 import models.Cdr;
@@ -57,13 +59,14 @@ public class CdrDao {
 			stmt.setString(4, finalDate);
 			System.out.println(stmt.toString());
 			ResultSet rs = stmt.executeQuery();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
 			while (rs.next()){
 				Cdr cdr = new Cdr();
 				
 				cdr.accountcode = rs.getString("accountcode");
 				cdr.amaflags = rs.getInt("amaflags");
 				cdr.billsec = rs.getInt("billsec");
-				cdr.calldate = new Date(rs.getDate("calldate").getTime());
+				cdr.calldate = sdf.parse(rs.getString("calldate"));
 				cdr.channel = rs.getString("channel");
 				cdr.clid = rs.getString("clid");
 				cdr.dcontext = rs.getString("dcontext");
@@ -81,6 +84,7 @@ public class CdrDao {
 				cdr.uniqueid = rs.getString("uniqueid");
 				cdr.userfield = rs.getString("userfield");
 				cdrList.add(cdr);
+				System.out.println("Date: "+ cdr.calldate);
 			}
 			conn.commit();
 		} catch (Exception e){
