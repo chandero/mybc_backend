@@ -26,6 +26,15 @@ public class VoicemailController extends Controller {
         return ok(is).withHeaders("Content-lenght", lenght.toString()).withHeader("Content-Disposition", "attachment; filename="+file+".wav");
     }
 
+    public Result getVoicemailStatus(String extension){
+        return jsonResult(ok(Json.toJson(VoicemailService.getVoicemailStatus(extension))));
+    }
+
+    public Result setVoicemailStatus(String extension, Boolean status){
+        return jsonResult(ok(Json.toJson(VoicemailService.setVoicemailStatus(extension, status))));
+    }
+
+
     public Result delVoicemail(String extension, String file){
         return jsonResult(ok(Json.toJson(VoicemailService.del(extension, file))));
     }

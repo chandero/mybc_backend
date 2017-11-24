@@ -16,6 +16,8 @@ GET     /api/record/get/:uniqueid                           controllers.CdrContr
 GET     /api/voicemail/getlist/:extension                   controllers.VoicemailController.getVoicemailList(extension: String)
 GET     /api/voicemail/get/:extension/:file                 controllers.VoicemailController.getVoicemail(extension: String, file: String)
 GET     /api/voicemail/del/:extension/:file                 controllers.VoicemailController.delVoicemail(extension: String, file: String)
+GET     /api/voicemail/getstatus/:extension                 controllers.VoicemailController.getVoicemailStatus(extension: String)
+GET    /api/voicemail/setstatus/:extension/:status         controllers.VoicemailController.setVoicemailStatus(extension: String, status: Boolean)
 
 GET     /api/meet/getlist/:extension                        controllers.MeetController.getMeetList(extension: String)
 GET     /api/meet/get/:extension/:file                      controllers.MeetController.getMeet(extension: String, file: String)

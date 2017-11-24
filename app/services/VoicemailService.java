@@ -39,6 +39,14 @@ public class VoicemailService {
         return VoicemailDao.getInstance().getLength(directoryName, file);
     }
 
+    public static Boolean getVoicemailStatus(String extension){
+        return VoicemailDao.getInstance().getVoicemailStatus(extension);
+    }
+
+    public static Boolean setVoicemailStatus(String extension, Boolean status){
+        return VoicemailDao.getInstance().setVoicemailStatus(extension, status);
+    }
+
     private static String getDir() {
         String result = "/";
         String currDir = Paths.get(".").toAbsolutePath().normalize().toString();
