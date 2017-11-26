@@ -32,6 +32,8 @@ public class SigninController extends Controller {
     public Result validateUser(String numberOrEmail) {
     	ExtensionDto e = ExtensionService.find(numberOrEmail);
     	if (e != null){
+			e.exte_claveweb = "***";
+			e.exte_clave = "***";
     		return jsonResult(ok(Json.toJson(e)));
     	} else {
     		e = new ExtensionDto();
