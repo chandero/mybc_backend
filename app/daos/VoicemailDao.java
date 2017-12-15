@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import commons.Aplicador;
 import commons.ConnectionFactory;
 
 import models.Voicemail;
@@ -53,6 +54,7 @@ public class VoicemailDao {
                 }
             }
             conn.commit();
+            Aplicador.aplicar();
         } catch (Exception e) {
             try {
                 conn.rollback();

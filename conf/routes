@@ -17,7 +17,7 @@ GET     /api/voicemail/getlist/:extension                   controllers.Voicemai
 GET     /api/voicemail/get/:extension/:file                 controllers.VoicemailController.getVoicemail(extension: String, file: String)
 GET     /api/voicemail/del/:extension/:file                 controllers.VoicemailController.delVoicemail(extension: String, file: String)
 GET     /api/voicemail/getstatus/:extension                 controllers.VoicemailController.getVoicemailStatus(extension: String)
-GET    /api/voicemail/setstatus/:extension/:status         controllers.VoicemailController.setVoicemailStatus(extension: String, status: Boolean)
+GET    /api/voicemail/setstatus/:extension/:status          controllers.VoicemailController.setVoicemailStatus(extension: String, status: Boolean)
 
 GET     /api/meet/getlist/:extension                        controllers.MeetController.getMeetList(extension: String)
 GET     /api/meet/get/:extension/:file                      controllers.MeetController.getMeet(extension: String, file: String)
@@ -27,4 +27,6 @@ GET     /api/contact/getList/:extension                     controllers.ContactC
 GET     /api/contact/get/:extension/:id                     controllers.ContactController.getContact(extension: String, id: String)
 
 GET     /api/followme/get/:extension                        controllers.FollowmeController.get(extension: String)
-POST    /api/followme/set                                   controllers.FollowmeController.set()
+GET     /api/followme/setstatus/:extension/:status          controllers.FollowmeController.setFollowmeStatus(extension: String, status: Boolean)
+GET     /api/followme/getstatus/:extension                  controllers.FollowmeController.getFollowmeStatus(extension: String)
+POST    /api/followme/setdata                               controllers.FollowmeController.setFollowmeData()
