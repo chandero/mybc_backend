@@ -38,7 +38,7 @@ public class SigninController extends Controller {
     	} else {
     		e = new ExtensionDto();
     		e.exte_estado = false;
-    		return jsonResult(unauthorized(Json.toJson(e)));
+    		return jsonResult(unauthorized());
     	}
 		
     }
@@ -46,13 +46,13 @@ public class SigninController extends Controller {
     public Result validateSignIn(String numberOrEmail, String password){
     	ExtensionDto e = ExtensionService.find(numberOrEmail);
     	if (e.exte_claveweb == null){
-			return jsonResult(unauthorized(Json.toJson(e)));
+			return jsonResult(unauthorized());
 		} else
     	//if (passwordSecutiry.check(password, e.exte_claveweb)){
 		if (password.equals(e.exte_claveweb)) {
     		return jsonResult(ok(Json.toJson(e)));
     	} else {
-    		return jsonResult(unauthorized(Json.toJson(e)));
+    		return jsonResult(unauthorized());
     	}
     	
     }

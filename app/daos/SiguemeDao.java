@@ -78,7 +78,8 @@ public class SiguemeDao {
                     result = true;
                 }
             }
-            conn.commit();
+			conn.commit();
+			Aplicador.aplicar();
         } catch (Exception e) {
             try {
                 conn.rollback();
@@ -164,7 +165,7 @@ public class SiguemeDao {
 			stmt.setString(5, "");
 			stmt.setString(6, "");
 			stmt.setBoolean(7, sigueme.sigu_activo);
-			stmt.setString(8, "Hangup");
+			stmt.setString(8, "1");
 			stmt.setLong(9, 1);
 			stmt.setBoolean(10, false);
 			stmt.setString(11, sigueme.sigu_extlist);

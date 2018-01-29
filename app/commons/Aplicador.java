@@ -9,7 +9,7 @@ import java.util.Locale;
 public class Aplicador {
 
     public static List<String> aplicar() {
-        String command = "sudo /etc/asterisk/aplicar.sh";
+        String command = "/etc/asterisk/aplicar.sh";
         String OS = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH);
 		List<String> output = new ArrayList<String>();		
 		if (OS.indexOf("win") >= 0){
@@ -32,7 +32,7 @@ public class Aplicador {
 		//TODO Quitar comentario o agregar para modo desarrollo
 		try {
 			Runtime runtime = Runtime.getRuntime();
-			String[] cmd = { "sudo", "", command };
+			String[] cmd = { "/bin/bash", "-c", command };
 			Process child = runtime.exec(cmd);
 			InputStreamReader irs = new InputStreamReader(child.getInputStream());
 			BufferedReader br = new BufferedReader(irs);
